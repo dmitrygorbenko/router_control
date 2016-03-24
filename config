@@ -1,0 +1,43 @@
+
+# listen_ip and listen_port - Server IP and port
+
+listen_ip = 192.168.15.19
+listen_port = 7845
+
+# Allow_from - Clients IP which will be allowed to contact with program
+# Any TCP connections from another IP addresses will be refused
+# example : 192.168.1.1, 192.168.1.2
+
+allow_from = 192.168.5.1, 192.168.5.254
+
+# networks - List of subnetwork supported by this server
+
+networks = 3, 4, 5, 6, 7, 8
+
+# mac_dir - Directory which contans files with mac database like /etc/ethers
+# For example, if mac_dir = "/tmp/mac", then '/tmp/mac/4.mac' - file for 4-th subnet
+# Whose files used to properly set MAC's of IP's at system boot
+# If you ask "But why I should use such chema, not just put all
+# macs to /etc/ethers", I will answer "This helps you when you
+# have to support a lot of subnetworks and file /etc/ethers become too big".
+# You should put next lines in your /etc/rc.d/rc.local:
+# ------8<---------------------------
+# /sbin/arp -f /var/macs/3.mac
+# ...
+# /sbin/arp -f /var/macs/8.mac
+# ------8<---------------------------
+
+mac_dir = /var/macs/
+
+# denied_for - List of IPs, whose changes are denied
+denied_for = 192.168.2.240, 192.168.2.254
+denied_for = 192.168.3.240, 192.168.3.254
+denied_for = 192.168.4.240, 192.168.4.250, 192.168.4.251, 192.168.4.252, 192.168.4.253, 192.168.4.254
+denied_for = 192.168.5.1, 192.168.5.240, 192.168.5.244, 192.168.5.251, 192.168.5.252, 192.168.5.253, 192.168.5.254
+denied_for = 192.168.6.240, 192.168.6.254
+denied_for = 192.168.7.240, 192.168.7.254
+denied_for = 192.168.8.240, 192.168.8.254
+denied_for = 192.168.9.240, 192.168.9.254
+denied_for = 192.168.10.240, 192.168.10.254
+denied_for = 192.168.11.240, 192.168.11.254
+denied_for = 192.168.12.240, 192.168.12.254
